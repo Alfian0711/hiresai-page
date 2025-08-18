@@ -12,7 +12,7 @@
 
     <title>Hires AI - Best Solution for Recruitment</title>
     <meta name="description" content="This is Home for AI Tool" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16" />
+    <link rel="icon" href="/favicon.png" type="image/x-icon" sizes="16x16" />
     <script src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js" crossorigin="" noModule=""></script>
 </head>
 
@@ -94,39 +94,37 @@
                 transform: rotate(360deg)
             }
         }
+        /* tambahkan di style.css atau <style> */
+        .mobile-sidebar {
+        background-color: rgba(20, 20, 30, 0.95); /* hampir solid */
+        backdrop-filter: blur(8px);                /* biar modern */
+        box-shadow: -2px 0 12px rgba(0,0,0,0.5);   /* bayangan ke kiri */
+        }
+
     </style>
+
+    <!-- ====== HEADER START ====== -->
     <header class="fixed left-0 top-0 z-9999 w-full py-7 lg:py-0">
         <div class="relative mx-auto max-w-[1170px] items-center justify-between px-4 sm:px-8 lg:flex xl:px-0">
-            <div class="flex w-full items-center justify-between lg:w-1/4">
-                <a href="/">
-                    <img 
-                        alt="Logo"
-                        loading="lazy"
+            <div class="flex w-full items-center justify-between lg:w-1/4"> <a href="/"> <img alt="Logo" loading="lazy"
                         width="164" height="36" decoding="async" data-nimg="1" style="color:transparent"
-                        src="https://hires-ai.vercel.app/images/logo/logo-gram.svg" /></a><button class="block lg:hidden">
-                        <span
-                            class="relative block h-5.5 w-5.5 cursor-pointer">
-                            <span
-                                class="du-block absolute right-0 h-full w-full">
-                            <span
+                        src="https://hires-ai.vercel.app/images/logo/logo-gram.svg" /></a> <button
+                    class="block lg:hidden" id="menu-btn"> <span class="relative block h-5.5 w-5.5 cursor-pointer">
+                        <span class="du-block absolute right-0 h-full w-full"> <span
                                 class="relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-white delay-[0] duration-200 ease-in-out !w-full delay-300">
-                            </span>
-                            <span
+                            </span> <span
                                 class="relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-white delay-150 duration-200 ease-in-out delay-400 !w-full">
-                            </span>
-                            <span
+                            </span> <span
                                 class="relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-white delay-200 duration-200 ease-in-out !w-full delay-500">
-                            </span>
-                        </span>
-                        <span
-                            class="du-block absolute right-0 h-full w-full rotate-45">
-                            <span
-                                class="absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-white delay-300 duration-200 ease-in-out !h-0 delay-[0]"></span><span
-                                class="delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-white duration-200 ease-in-out !h-0 delay-200"></span></span></span></button>
-            </div>
-            <div class="invisible h-0 w-full items-center justify-between lg:visible lg:flex lg:h-auto lg:w-3/4 lg:gap-8 xl:gap-12">
+                            </span> </span> <span class="du-block absolute right-0 h-full w-full rotate-45"> <span
+                                class="absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-white delay-300 duration-200 ease-in-out !h-0 delay-[0]">
+                            </span> <span
+                                class="delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-white duration-200 ease-in-out !h-0 delay-200"></span>
+                        </span> </span> </button> </div>
+            <div
+                class="invisible h-0 w-full items-center justify-between lg:visible lg:flex lg:h-auto lg:w-3/4 ">
                 <nav>
-                    <ul class="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-2">
+                    <ul id="menu" class="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-2">
                         <li class="nav__menu group relative lg:py-7"><a
                                 class="hover:nav-gradient relative border border-transparent px-4 py-1.5 text-sm hover:text-white nav-gradient text-white"
                                 href="/">Home</a></li>
@@ -156,9 +154,8 @@
                         </li>
                         <li class="nav__menu group relative lg:py-7"><a
                                 class="hover:nav-gradient relative flex items-center justify-between gap-3 border border-transparent px-4 py-1.5 text-sm hover:text-white text-white/80"
-                                href="">Job Partner<span><svg
-                                        class="h-3 w-3 cursor-pointer fill-current" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 512 512">
+                                href="">Job Partner<span><svg class="h-3 w-3 cursor-pointer fill-current"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                         <path
                                             d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z">
                                         </path>
@@ -167,25 +164,29 @@
                                 <li><a class="flex rounded-md px-4 py-2 text-sm text-white/70 hover:bg-white/5 hover:text-white"
                                         href="https://hiresai.vercel.app/">Job Unilever</a></li>
                                 <li><a class="flex rounded-md px-4 py-2 text-sm text-white/70 hover:bg-white/5 hover:text-white"
-                                        href="https://hiresai.vercel.app/">Job ABP
-                                        Generator</a></li>
+                                        href="https://hiresai.vercel.app/">Job ABP Generator</a></li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
                 <div class="mt-7 flex items-center gap-6 lg:mt-0"><a class="text-sm text-white hover:text-opacity-75"
-                        href="https://hiresai.vercel.app/handler/sign-in">Sign In</a><a
+                        href="https://hiresai.vercel.app/handler/sign-in" target="_blank" rel="noopener noreferrer">Sign
+                        In</a><a
                         class="button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-4.5 py-2 text-sm text-white shadow-button hover:shadow-none"
-                        href="https://hiresai.vercel.app/handler/sign-up?after_auth_return_to=%2Fhandler%2Fsign-in">Sign up<svg class="mt-0.5" width="16" height="16" viewBox="0 0 16 16"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                        href="https://hiresai.vercel.app/handler/sign-up?after_auth_return_to=%2Fhandler%2Fsign-in"
+                        target="_blank" rel="noopener noreferrer">Sign up<svg class="mt-0.5" width="16" height="16"
+                            viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M14.4002 7.60002L9.2252 2.35002C9.0002 2.12502 8.6502 2.12502 8.4252 2.35002C8.2002 2.57502 8.2002 2.92502 8.4252 3.15002L12.6252 7.42502H2.0002C1.7002 7.42502 1.4502 7.67502 1.4502 7.97502C1.4502 8.27502 1.7002 8.55003 2.0002 8.55003H12.6752L8.4252 12.875C8.2002 13.1 8.2002 13.45 8.4252 13.675C8.5252 13.775 8.6752 13.825 8.8252 13.825C8.9752 13.825 9.1252 13.775 9.2252 13.65L14.4002 8.40002C14.6252 8.17502 14.6252 7.82503 14.4002 7.60002Z"
                                 fill="white"></path>
-                        </svg></a></div>
+                        </svg></a> </div>
             </div>
         </div>
     </header>
     
+    <div id="nav-overlay" class="fixed inset-x-0 z-[9997] hidden bg-black/50 backdrop-blur-sm lg:hidden"></div>
+
+
     <section id="home" class="relative z-10 overflow-hidden pt-35 md:pt-40 xl:pt-45">
         <div class="mx-auto max-w-7xl">
             <div class="pointer-events-none absolute inset-0 -z-10 -mx-28 overflow-hidden">
@@ -206,9 +207,11 @@
                         alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1"
                         style="color:transparent" src="/images/hero/icon-title.svg" /><span
                         class="hero-subtitle-text">Hires AI - Solution for Recruitment</span></span>
-                <h1 class="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1">Hires AI Scan Smarter, Hire Better for everyone</h1>
-                <p class="mx-auto mb-9 max-w-[500px] font-medium md:text-lg">Hires AI streamlines your hiring process with intelligent CV screening, helping you find the right talent
-                     faster, with less bias and more accuracy. Save time, hire smarter.</p><a
+                <h1 class="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1">Hires AI Scan Smarter,
+                    Hire Better for everyone</h1>
+                <p class="mx-auto mb-9 max-w-[500px] font-medium md:text-lg">Hires AI streamlines your hiring process
+                    with intelligent CV screening, helping you find the right talent
+                    faster, with less bias and more accuracy. Save time, hire smarter.</p><a
                     class="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
                     href="https://hires-ai.vercel.app/">Try Demo</a>
             </div>
@@ -225,9 +228,11 @@
                         alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1"
                         style="color:transparent" src="/images/hero/icon-title.svg" /><span class="hero-subtitle-text">
                         <!-- -->Main Features<!-- --> </span></span>
-                <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Key Features of Hires AI
+                <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Key Features of
+                    Hires AI
                     Tool</h2>
-                <p class="mx-auto max-w-[714px] font-medium">There are many variations of features on our website applications and tools (Hires AI), starting from Screening CV, AI interview, and others</p>
+                <p class="mx-auto max-w-[714px] font-medium">There are many variations of features on our website
+                    applications and tools (Hires AI), starting from Screening CV, AI interview, and others</p>
             </div>
             <div class="relative">
                 <div
@@ -246,7 +251,8 @@
                                     alt="icon" loading="lazy" width="32" height="32" decoding="async" data-nimg="1"
                                     style="color:transparent" src="/images/features/icon-04.svg" /></span>
                             <h3 class="mb-4 text-lg font-semibold text-white">AI Interview</h3>
-                            <p class="font-medium">Automated interviews with AI that evaluates answers for relevance and clarity.</p>
+                            <p class="font-medium">Automated interviews with AI that evaluates answers for relevance and
+                                clarity.</p>
                         </div>
                     </div>
                     <div class="w-full sm:w-1/2 lg:w-1/3">
@@ -256,7 +262,8 @@
                                 class="features-bg absolute left-0 top-0 -z-1 h-full w-full opacity-0 group-hover:opacity-100 undefined"></span><span
                                 class="icon-border relative mx-auto mb-8 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full"><img
                                     alt="icon" loading="lazy" width="32" height="32" decoding="async" data-nimg="1"
-                                    style="color:transparent" src="https://ai-tool.nextjstemplates.com/images/features/icon-01.svg" /></span>
+                                    style="color:transparent"
+                                    src="https://ai-tool.nextjstemplates.com/images/features/icon-01.svg" /></span>
                             <h3 class="mb-4 text-lg font-semibold text-white">Screening CV</h3>
                             <p class="font-medium">Instantly filter and analyze resumes based on your criteria.</p>
                         </div>
@@ -285,7 +292,8 @@
                                     alt="icon" loading="lazy" width="32" height="32" decoding="async" data-nimg="1"
                                     style="color:transparent" src="/images/features/icon-04.svg" /></span>
                             <h3 class="mb-4 text-lg font-semibold text-white">Analysis Dashboard for HR</h3>
-                            <p class="font-medium">Graphic &amp; data visualization tools to track candidate progress effortlessly</p>
+                            <p class="font-medium">Graphic &amp; data visualization tools to track candidate progress
+                                effortlessly</p>
                         </div>
                     </div>
                     <div class="w-full sm:w-1/2 lg:w-1/3">
@@ -297,7 +305,8 @@
                                     alt="icon" loading="lazy" width="32" height="32" decoding="async" data-nimg="1"
                                     style="color:transparent" src="/images/features/icon-05.svg" /></span>
                             <h3 class="mb-4 text-lg font-semibold text-white">Feedback Analysis for Talent</h3>
-                            <p class="font-medium">Utilize advanced analytics to assess and enhance employee performance</p>
+                            <p class="font-medium">Utilize advanced analytics to assess and enhance employee performance
+                            </p>
                         </div>
                     </div>
                     <div class="w-full sm:w-1/2 lg:w-1/3">
@@ -330,11 +339,14 @@
                                                 data-nimg="1" style="color:transparent"
                                                 src="/images/hero/icon-title.svg" /><span
                                                 class="hero-subtitle-text">Kickstart your AI Startup</span></span>
-                                        <h3 class="mb-4.5 text-heading-4 font-bold text-white">Scan Smarter, Hire Better</h3>
-                                        <p class="mb-10 font-medium">Brilliant Toolkits is here for you all, an AI recruitment platform that can help you manage employee/staff recruitment.</p>
-                                        <p class="mb-10 font-medium">The main thrust is to focus on recruiting job applicants.</p>
-                                        <a
-                                            class="features-button-gradient relative inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm text-white duration-300 ease-in hover:shadow-button"
+                                        <h3 class="mb-4.5 text-heading-4 font-bold text-white">Scan Smarter, Hire Better
+                                        </h3>
+                                        <p class="mb-10 font-medium">Brilliant Toolkits is here for you all, an AI
+                                            recruitment platform that can help you manage employee/staff recruitment.
+                                        </p>
+                                        <p class="mb-10 font-medium">The main thrust is to focus on recruiting job
+                                            applicants.</p>
+                                        <a class="features-button-gradient relative inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm text-white duration-300 ease-in hover:shadow-button"
                                             href="/#">Learn more<svg width="14" height="12" viewBox="0 0 14 12"
                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -345,37 +357,35 @@
                                     <div class="relative hidden aspect-square w-full max-w-[428px] sm:block"><img
                                             alt="icon" loading="lazy" decoding="async" data-nimg="fill"
                                             style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
-                                            src="https://ai-tool.nextjstemplates.com/images/features/big-icon.svg" /></div>
+                                            src="https://ai-tool.nextjstemplates.com/images/features/big-icon.svg" />
+                                    </div>
                                 </div>
                                 <div class="pointer-events-none absolute inset-0 -z-10 -mx-28 overflow-hidden">
-                                        <span
-                                        class="absolute bottom-0 left-1/2 h-full w-full -translate-x-1/2"><img
+                                    <span class="absolute bottom-0 left-1/2 h-full w-full -translate-x-1/2"><img
                                             alt="blur" loading="lazy" decoding="async" data-nimg="fill"
                                             class="max-w-none"
                                             style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
                                             src="/images/blur/blur-03.svg" />
-                                        </span>
-                                        <span
-                                        class="absolute bottom-0 left-1/2 h-full w-full -translate-x-1/2"><img
+                                    </span>
+                                    <span class="absolute bottom-0 left-1/2 h-full w-full -translate-x-1/2"><img
                                             alt="blur" loading="lazy" decoding="async" data-nimg="fill"
                                             class="max-w-none"
                                             style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
                                             src="/images/blur/blur-04.svg" />
-                                        </span>
-                                        <span
+                                    </span>
+                                    <span
                                         class="absolute bottom-0 left-1/2 aspect-[530/270] w-full max-w-[530px] -translate-x-1/2"><img
                                             alt="blur" loading="lazy" decoding="async" data-nimg="fill"
                                             class="max-w-none"
                                             style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
                                             src="/images/blur/blur-05.svg" />
-                                        </span>
-                                        <span class="absolute right-0 top-0 aspect-[580/430] w-full max-w-[580px]">
-                                        <img
-                                            alt="shape" loading="lazy" decoding="async" data-nimg="fill"
+                                    </span>
+                                    <span class="absolute right-0 top-0 aspect-[580/430] w-full max-w-[580px]">
+                                        <img alt="shape" loading="lazy" decoding="async" data-nimg="fill"
                                             class="max-w-none"
                                             style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
                                             src="/images/features/shape-03.svg" />
-                                        </span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -458,15 +468,18 @@
                     <div class="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[925px] -translate-x-1/2">
                         <img alt="blur" loading="lazy" decoding="async" data-nimg="fill" class="max-w-none"
                             style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
-                            src="/images/blur/blur-13.svg" /></div>
+                            src="/images/blur/blur-13.svg" />
+                    </div>
                     <div class="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[778px] -translate-x-1/2">
                         <img alt="blur" loading="lazy" decoding="async" data-nimg="fill" class="max-w-none"
                             style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
-                            src="/images/blur/blur-14.svg" /></div>
+                            src="/images/blur/blur-14.svg" />
+                    </div>
                     <div class="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[584px] -translate-x-1/2">
                         <img alt="blur" loading="lazy" decoding="async" data-nimg="fill" class="max-w-none"
                             style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
-                            src="/images/blur/blur-15.svg" /></div>
+                            src="/images/blur/blur-15.svg" />
+                    </div>
                 </div>
                 <div
                     class="pricing-circle absolute left-1/2 top-0 h-[830px] w-full max-w-[830px] -translate-x-1/2 rounded-full bg-dark">
@@ -493,17 +506,22 @@
                                 alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1"
                                 style="color:transparent" src="/images/hero/icon-title.svg" /><span
                                 class="hero-subtitle-text"> <!-- -->Get access<!-- --> </span></span>
-                        <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Our Pricing Package</h2>
-                        <p class="mx-auto max-w-[714px] font-medium">Hires AI offers flexible pricing options tailored to your hiring needs whether you're a startup, growing team, or enterprise. Choose the plan that fits, and scale your recruitment smarter.</p>
+                        <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Our Pricing
+                            Package</h2>
+                        <p class="mx-auto max-w-[714px] font-medium">Hires AI offers flexible pricing options tailored
+                            to your hiring needs whether you're a startup, growing team, or enterprise. Choose the plan
+                            that fits, and scale your recruitment smarter.</p>
                     </div>
                     <div class="grid grid-cols-1 gap-7.5 sm:grid-cols-2 lg:grid-cols-3">
-                        <div class="wow fadeInUp pricing-item-border relative overflow-hidden rounded-3xl bg-dark px-8 pb-10 pt-12.5 xl:px-10">
+                        <div
+                            class="wow fadeInUp pricing-item-border relative overflow-hidden rounded-3xl bg-dark px-8 pb-10 pt-12.5 xl:px-10">
                             <span class="absolute right-9 top-9"><img alt="icon" loading="lazy" width="44" height="44"
                                     decoding="async" data-nimg="1" style="color:transparent"
                                     src="https://ai-tool.nextjstemplates.com/images/pricing/pricing-icon-01.svg" /></span>
                             <h3 class="mb-5.5 text-heading-6 font-semibold text-white">Novera</h3>
                             <div class="flex items-center gap-3.5">
-                                <h2 class="pricing-gradient-text text-custom-2 font-bold">Rp<!-- --> <!-- -->1.000.000</h2>
+                                <h2 class="pricing-gradient-text text-custom-2 font-bold">Rp<!-- --> <!-- -->1.000.000
+                                </h2>
                                 <p class="font-medium">/month <br />(billed annually)</p>
                             </div>
                             <div class="pricing-gradient-divider my-10 h-[1px] w-full"></div>
@@ -628,7 +646,7 @@
                                             </clipPath>
                                         </defs>
                                     </svg><span class="font-medium">500 Kandidate Worker</span></li>
-                                    <li class="flex items-center gap-5"><svg width="25" height="24" viewBox="0 0 25 24"
+                                <li class="flex items-center gap-5"><svg width="25" height="24" viewBox="0 0 25 24"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0_67_11301)">
                                             <path
@@ -667,7 +685,8 @@
                                                 <rect width="25" height="24" fill="white"></rect>
                                             </clipPath>
                                         </defs>
-                                    </svg><span class="font-medium">Integrated with commonly used HR platforms</span></li>
+                                    </svg><span class="font-medium">Integrated with commonly used HR platforms</span>
+                                </li>
                             </ul><button aria-label="Get the plan button"
                                 class="pricing-button-gradient relative mt-11 flex w-full items-center justify-center gap-1.5 rounded-lg p-3 font-medium text-white transition-all duration-300 ease-in-out hover:shadow-button">Get
                                 the plan<svg width="17" height="16" viewBox="0 0 17 16" fill="none"
@@ -687,7 +706,7 @@
                                         style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
                                         src="/images/blur/blur-17.svg" /></span></div>
                         </div>
-                        
+
                         <div
                             class="wow fadeInUp pricing-item-border relative overflow-hidden rounded-3xl bg-dark px-8 pb-10 pt-12.5 xl:px-10">
                             <span class="absolute right-9 top-9"><img alt="icon" loading="lazy" width="44" height="44"
@@ -695,7 +714,8 @@
                                     src="https://ai-tool.nextjstemplates.com/images/pricing/pricing-icon-01.svg" /></span>
                             <h3 class="mb-5.5 text-heading-6 font-semibold text-white">Lucida</h3>
                             <div class="flex items-center gap-3.5">
-                                <h2 class="pricing-gradient-text text-custom-2 font-bold">Rp<!-- --> <!-- -->3.000.000</h2>
+                                <h2 class="pricing-gradient-text text-custom-2 font-bold">Rp<!-- --> <!-- -->3.000.000
+                                </h2>
                                 <p class="font-medium">/month <br />(billed annually)</p>
                             </div>
                             <div class="pricing-gradient-divider my-10 h-[1px] w-full"></div>
@@ -919,7 +939,7 @@
                                         style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
                                         src="/images/blur/blur-17.svg" /></span></div>
                         </div>
-                        
+
                         <div
                             class="wow fadeInUp pricing-item-border relative overflow-hidden rounded-3xl bg-dark px-8 pb-10 pt-12.5 xl:px-10">
                             <span class="absolute right-9 top-9"><img alt="icon" loading="lazy" width="44" height="44"
@@ -927,7 +947,8 @@
                                     src="https://ai-tool.nextjstemplates.com/images/pricing/pricing-icon-03.svg" /></span>
                             <h3 class="mb-5.5 text-heading-6 font-semibold text-white">Lumine</h3>
                             <div class="flex items-center gap-3.5">
-                                <h2 class="pricing-gradient-text text-custom-2 font-bold">Rp<!-- --> <!-- -->50.000.000</h2>
+                                <h2 class="pricing-gradient-text text-custom-2 font-bold">Rp<!-- --> <!-- -->50.000.000
+                                </h2>
                                 <p class="font-medium">/year <br />(billed annually)</p>
                             </div>
                             <div class="pricing-gradient-divider my-10 h-[1px] w-full"></div>
@@ -993,7 +1014,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>
@@ -1007,52 +1028,56 @@
                         <!-- -->Wall of love<!-- --> </span></span>
                 <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">What Our User Says
                 </h2>
-                <p class="mx-auto max-w-[714px] font-medium">There are many tools for hiring, but most fall short or require too much manual effort. 
-                    Hires AI changes that combining speed, accuracy, and smart automation to help you hire better, every time.</p>
+                <p class="mx-auto max-w-[714px] font-medium">There are many tools for hiring, but most fall short or
+                    require too much manual effort.
+                    Hires AI changes that combining speed, accuracy, and smart automation to help you hire better, every
+                    time.</p>
             </div>
             <div class="grid grid-cols-3 gap-7.5 sm:grid-cols-2 lg:grid-cols-3 max-h-[855px] overflow-hidden">
-                    <div class="user-border-gradient relative overflow-hidden rounded-[19px] px-8 py-9">
-                        <div class="flex items-center gap-4.5">
-                            <div>
-                                <h3 class="text-sm font-medium text-white">Ananda Fikri Ijlal Akbar</h3>
-                                <p class="text-sm font-medium">Founder at Boxsploit</p>
-                            </div>
-                        </div>
-                        <div class="user-divider relative my-6 h-[1px] w-full"></div>
-                        <p>“I used to spend hours reviewing resumes. Now, Hires AI does it in minutes and with better accuracy!</p>
-                        <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"><span
-                                class="absolute bottom-0 right-0 -z-1 h-full w-full bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat"></span>
+                <div class="user-border-gradient relative overflow-hidden rounded-[19px] px-8 py-9">
+                    <div class="flex items-center gap-4.5">
+                        <div>
+                            <h3 class="text-sm font-medium text-white">Ananda Fikri Ijlal Akbar</h3>
+                            <p class="text-sm font-medium">Founder at Boxsploit</p>
                         </div>
                     </div>
-                    <div class="user-border-gradient relative overflow-hidden rounded-[19px] px-8 py-9">
-                        <div class="flex items-center gap-4.5">
-                            <div>
-                                <h3 class="text-sm font-medium text-white">Budi Suprapto</h3>
-                                <p class="text-sm font-medium">President Director at CV Prima Karya</p>
-                            </div>
-                        </div>
-                        <div class="user-divider relative my-6 h-[1px] w-full"></div>
-                        <p>Hires AI cut our screening time in half. We’re hiring better candidates, faster than ever!</p>
-                        <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"><span
-                                class="absolute bottom-0 right-0 -z-1 h-full w-full bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat"></span>
+                    <div class="user-divider relative my-6 h-[1px] w-full"></div>
+                    <p>“I used to spend hours reviewing resumes. Now, Hires AI does it in minutes and with better
+                        accuracy!</p>
+                    <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"><span
+                            class="absolute bottom-0 right-0 -z-1 h-full w-full bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat"></span>
+                    </div>
+                </div>
+                <div class="user-border-gradient relative overflow-hidden rounded-[19px] px-8 py-9">
+                    <div class="flex items-center gap-4.5">
+                        <div>
+                            <h3 class="text-sm font-medium text-white">Budi Suprapto</h3>
+                            <p class="text-sm font-medium">President Director at CV Prima Karya</p>
                         </div>
                     </div>
-                    <div class="user-border-gradient relative overflow-hidden rounded-[19px] px-8 py-9">
-                        <div class="flex items-center gap-4.5">
-                            <div>
-                                <h3 class="text-sm font-medium text-white">Fajri Fadhilla</h3>
-                                <p class="text-sm font-medium">HR/Recruiter at Valdo Inc</p>
-                            </div>  
+                    <div class="user-divider relative my-6 h-[1px] w-full"></div>
+                    <p>Hires AI cut our screening time in half. We’re hiring better candidates, faster than ever!</p>
+                    <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"><span
+                            class="absolute bottom-0 right-0 -z-1 h-full w-full bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat"></span>
+                    </div>
+                </div>
+                <div class="user-border-gradient relative overflow-hidden rounded-[19px] px-8 py-9">
+                    <div class="flex items-center gap-4.5">
+                        <div>
+                            <h3 class="text-sm font-medium text-white">Fajri Fadhilla</h3>
+                            <p class="text-sm font-medium">HR/Recruiter at Valdo Inc</p>
                         </div>
-                        <div class="user-divider relative my-6 h-[1px] w-full"></div>
-                        <p>It’s like hiring a recruiter who never sleeps smarter, faster, more accurate, never complains, and actually gets things done.</p>
-                        <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"><span
-                                class="absolute bottom-0 right-0 -z-1 h-full w-full bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat"></span>
-                        </div>
+                    </div>
+                    <div class="user-divider relative my-6 h-[1px] w-full"></div>
+                    <p>It’s like hiring a recruiter who never sleeps smarter, faster, more accurate, never complains,
+                        and actually gets things done.</p>
+                    <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"><span
+                            class="absolute bottom-0 right-0 -z-1 h-full w-full bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat"></span>
                     </div>
                 </div>
             </div>
-            <!-- <div
+        </div>
+        <!-- <div
                 class="pointer-events-none absolute inset-x-0 bottom-20 flex justify-center bg-gradient-to-t from-dark pb-8 pt-32  ">
                 <button type="button"
                     class="button-border-gradient hover:button-gradient-hover pointer-events-auto relative top-20 mx-auto -mt-7.5 flex rounded-lg px-4.5 py-3 text-sm font-semibold text-white duration-300 ease-in  ">Show
@@ -1209,16 +1234,15 @@
                 <div class="wow fadeInUp text-center">
                     <span
                         class="hero-subtitle-gradient relative mb-4 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
-                        <img
-                            alt="icon" loading="lazy" width="17" height="16" decoding="async" data-nimg="1"
+                        <img alt="icon" loading="lazy" width="17" height="16" decoding="async" data-nimg="1"
                             style="color:transparent" src="/images/hero/icon-title.svg" />
-                            <span
-                            class="hero-subtitle-text">Try our tool for Free
-                            </span>
+                        <span class="hero-subtitle-text">Try our tool for Free
+                        </span>
                     </span>
                     <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">What are you
                         waiting for?</h2>
-                    <p class="mx-auto mb-9 max-w-[714px] font-medium">We build smart hiring solutions for teams and companies by leveraging the power of AI and automation.</p><a
+                    <p class="mx-auto mb-9 max-w-[714px] font-medium">We build smart hiring solutions for teams and
+                        companies by leveraging the power of AI and automation.</p><a
                         class="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
                         href="/">Get Started for Free</a>
                 </div>
@@ -1253,7 +1277,8 @@
                 <div class="mb-10 w-full max-w-[520px]"><a class="mb-8.5 inline-block" href="/"><img alt="Logo"
                             loading="lazy" width="164" height="36" decoding="async" data-nimg="1"
                             style="color:transparent" src="https://hires-ai.vercel.app/images/logo/logo-gram.svg" /></a>
-                    <p class="mb-12 xl:w-4/5">We build smart hiring solutions for teams and companies by leveraging the power of AI and automation.
+                    <p class="mb-12 xl:w-4/5">We build smart hiring solutions for teams and companies by leveraging the
+                        power of AI and automation.
                     </p>
                     <div class="flex items-center gap-5"><a href="#" aria-label="facebook"
                             class="duration-300 ease-in hover:text-white"><svg class="fill-current" width="24"
@@ -1342,8 +1367,139 @@
                 <path
                     d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z">
                 </path>
-            </svg></div>
+            </svg>
+        </div>
     </div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn      = document.getElementById('menu-btn');                 // hamburger
+  if (!btn) return;
+  const navWrap  = btn.parentElement.nextElementSibling;                // container nav (saudara setelah logo)
+  const overlay  = document.getElementById('nav-overlay');
+  const headerEl = document.querySelector('header');
+  const isDesktop = () => matchMedia('(min-width:1024px)').matches;
+
+  // Panel classes (dipakai HANYA di mobile)
+  const PANEL = [
+    'fixed','right-0','z-[9998]','w-[78%]','max-w-[320px]',
+    'bg-black/90','backdrop-blur','px-6','py-6',
+    'flex','flex-col','gap-3','overflow-y-auto',
+    'transition-transform','duration-200','translate-x-full'
+  ];
+  const HIDDEN = ['invisible','h-0']; // kelas awal HTML-mu
+
+  // Sentuhan UI mobile biar enak di-tap
+  function enhanceMobileItems() {
+    navWrap.querySelectorAll('#menu > li > a, #menu > li > button')
+      .forEach(el => el.classList.add('block','w-full','rounded-md','px-3','py-2','text-sm','hover:bg-white/10'));
+  }
+  function resetMobileItems() {
+    navWrap.querySelectorAll('#menu > li > a, #menu > li > button')
+      .forEach(el => el.classList.remove('block','w-full','rounded-md','px-3','py-2','text-sm','hover:bg-white/10'));
+  }
+
+  // Sidebar & overlay mulai DI BAWAH header
+  function adjustOffset() {
+    const h = headerEl ? headerEl.offsetHeight : 0;
+    if (!isDesktop()) {
+      navWrap.style.top = h + 'px';
+      navWrap.style.height = `calc(60vh - ${h}px)`;
+      overlay.style.top = h + 'px';
+      overlay.style.height = `calc(60vh - ${h}px)`;
+      overlay.style.left = 0; overlay.style.right = 0; overlay.style.position = 'fixed';
+    } else {
+      navWrap.style.top = ''; navWrap.style.height = '';
+      overlay.style.top = ''; overlay.style.height = '';
+    }
+  }
+
+function prepareMobile() {
+  PANEL.forEach(c => navWrap.classList.add(c));
+  navWrap.classList.add(...HIDDEN, "mobile-sidebar"); // <== tambahkan ini
+  navWrap.classList.remove('translate-x-0');
+  enhanceMobileItems();
+  adjustOffset();
+}
+
+  function teardownMobile() {
+    PANEL.forEach(c => navWrap.classList.remove(c));
+    navWrap.classList.remove('translate-x-0','translate-x-full', ...HIDDEN);
+    document.querySelectorAll('.dropdown').forEach(dd => dd.classList.remove('hidden')); // restore for desktop
+    resetMobileItems();
+    overlay.classList.add('hidden');
+    lockScroll(false);
+    adjustOffset();
+  }
+
+  function lockScroll(on){
+    document.documentElement.style.overflow = on ? 'hidden' : '';
+    document.body.style.overflow = on ? 'hidden' : '';
+  }
+  function openNav(){
+    navWrap.classList.remove(...HIDDEN,'translate-x-full');
+    navWrap.classList.add('translate-x-0');
+    overlay.classList.remove('hidden');
+    btn.setAttribute('aria-expanded','true');
+    lockScroll(true);
+    adjustOffset();
+  }
+  function closeNav(){
+    navWrap.classList.remove('translate-x-0');
+    navWrap.classList.add('translate-x-full');
+    overlay.classList.add('hidden');
+    btn.setAttribute('aria-expanded','false');
+    lockScroll(false);
+    setTimeout(() => { if (!isDesktop()) navWrap.classList.add(...HIDDEN); }, 200);
+  }
+
+  // INIT
+  if (isDesktop()) teardownMobile(); else prepareMobile();
+  closeNav();
+
+  // Toggle
+  btn.addEventListener('click', (e) => {
+    if (isDesktop()) return;          // desktop tetap pakai layout asli
+    const opened = navWrap.classList.contains('translate-x-0');
+    opened ? closeNav() : openNav();
+  });
+
+  // Tutup
+  overlay.addEventListener('click', closeNav);
+  document.addEventListener('click', (e) => {
+    if (isDesktop()) return;
+    if (!e.target.closest('header')) closeNav();
+  });
+  navWrap.addEventListener('click', (e) => {
+    if (isDesktop()) return;
+    if (e.target.closest('a')) closeNav();
+  });
+
+  // Dropdown MOBILE via klik (desktop tetap hover)
+  navWrap.querySelectorAll('li.nav__menu').forEach(li => {
+    const trigger = li.querySelector('button, a');
+    const dd = li.querySelector('.dropdown');
+    if (!trigger || !dd) return;
+    trigger.addEventListener('click', (ev) => {
+      if (isDesktop()) return;
+      const href = trigger.getAttribute('href');
+      if (!href || href === '#') ev.preventDefault();
+      navWrap.querySelectorAll('.dropdown').forEach(x => { if (x !== dd) x.classList.add('hidden'); });
+      dd.classList.toggle('hidden');
+      ev.stopPropagation();
+    });
+  });
+
+  // Responsif + kalau header tinggi berubah (resize/orientasi)
+  window.addEventListener('resize', () => {
+    if (isDesktop()) { teardownMobile(); closeNav(); }
+    else { prepareMobile(); closeNav(); }
+  });
+  // optional: rekalkulasi saat scroll (kalau header shrink-on-scroll)
+  window.addEventListener('scroll', () => { if (!isDesktop()) adjustOffset(); }, { passive: true });
+});
+</script>
+
+
     <script src="/_next/static/chunks/webpack-5a222ed6879ce29c.js" crossorigin="" async=""></script>
     <script>(self.__next_f = self.__next_f || []).push([0]); self.__next_f.push([2, null])</script>
     <script>self.__next_f.push([1, "0:\"$L1\"\n"])</script>
