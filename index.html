@@ -1371,25 +1371,40 @@
             </svg>
         </div>
     </div>
-    <script>
+    
+<script>
 document.addEventListener('DOMContentLoaded', () => {
-  const btn      = document.getElementById('menu-btn');                 // hamburger
+  const btn       = document.getElementById('menu-btn');              // hamburger
   if (!btn) return;
-  const navWrap  = btn.parentElement.nextElementSibling;                // container nav (saudara setelah logo)
-  const overlay  = document.getElementById('nav-overlay');
-  const headerEl = document.querySelector('header');
+
+  const navWrap   = btn.parentElement.nextElementSibling;             // container nav (saudara setelah logo)
+  const overlay   = document.getElementById('nav-overlay');
+  const headerEl  = document.querySelector('header');
   const isDesktop = () => matchMedia('(min-width:1024px)').matches;
 
   // Panel classes (dipakai HANYA di mobile)
   const PANEL = [
     'fixed','right-0','z-[9998]','w-[78%]','max-w-[320px]',
     'bg-black/90','backdrop-blur','px-6','py-6',
-    'flex','flex-col','gap-3','overflow-y-auto',
-    'transition-transform','duration-200','translate-x-full'
+    'flex','transition-transform','duration-200','translate-x-full'
   ];
   const HIDDEN = ['invisible','h-0']; // kelas awal HTML-mu
+  // kelas desktop umum yang sering bikin dropdown tetap tersembunyi
+const DESKTOP_DROPDOWN_HIDE = [
+  'absolute','left-0','right-0','top-full',
+  'opacity-0','invisible','pointer-events-none',
+  'translate-y-2','-translate-y-2'
+];
 
-  // Sentuhan UI mobile biar enak di-tap
+// kelas yang kita sematkan saat MOBILE, supaya mudah dibersihkan saat DESKTOP
+const MOBILE_DROPDOWN_CLASSES = [
+  'hidden','static','block','visible','opacity-100','pointer-events-auto',
+  'mt-2','rounded-lg','bg-white/5','p-1','space-y-1','max-h-[50vh]','overflow-auto','w-full'
+];
+
+
+
+  // Sentuhan UI mobile biar enak di-tap (untuk pemicu menu utama)
   function enhanceMobileItems() {
     navWrap.querySelectorAll('#menu > li > a, #menu > li > button')
       .forEach(el => el.classList.add('block','w-full','rounded-md','px-3','py-2','text-sm','hover:bg-white/10'));
@@ -1404,9 +1419,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const h = headerEl ? headerEl.offsetHeight : 0;
     if (!isDesktop()) {
       navWrap.style.top = h + 'px';
-      navWrap.style.height = `calc(60vh - ${h}px)`;
+      navWrap.style.height = `calc(55vh - ${h}px)`;
       overlay.style.top = h + 'px';
-      overlay.style.height = `calc(60vh - ${h}px)`;
+      overlay.style.height = `calc(55vh - ${h}px)`;
       overlay.style.left = 0; overlay.style.right = 0; overlay.style.position = 'fixed';
     } else {
       navWrap.style.top = ''; navWrap.style.height = '';
@@ -1416,21 +1431,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function prepareMobile() {
   PANEL.forEach(c => navWrap.classList.add(c));
-  navWrap.classList.add(...HIDDEN, "mobile-sidebar"); // <== tambahkan ini
+
+  navWrap.querySelectorAll('.dropdown').forEach(dd => {
+    // tambahkan semua kelas mobile
+    MOBILE_DROPDOWN_CLASSES.forEach(k => dd.classList.add(k));
+    // fallback inline untuk mengalahkan CSS hover desktop
+    dd.style.position = 'static';
+    dd.style.opacity = '1';
+    dd.style.visibility = 'visible';
+    dd.style.pointerEvents = 'auto';
+  });
+
+  navWrap.querySelectorAll('.dropdown a').forEach(a=>{
+    a.classList.add('rounded-md','px-3','py-2','block');
+  });
+
+  navWrap.classList.add(...HIDDEN, 'mobile-sidebar');
   navWrap.classList.remove('translate-x-0');
   enhanceMobileItems();
   adjustOffset();
 }
 
-  function teardownMobile() {
-    PANEL.forEach(c => navWrap.classList.remove(c));
-    navWrap.classList.remove('translate-x-0','translate-x-full', ...HIDDEN);
-    document.querySelectorAll('.dropdown').forEach(dd => dd.classList.remove('hidden')); // restore for desktop
-    resetMobileItems();
-    overlay.classList.add('hidden');
-    lockScroll(false);
-    adjustOffset();
-  }
+function teardownMobile() {
+  PANEL.forEach(c => navWrap.classList.remove(c));
+  navWrap.classList.remove('translate-x-0','translate-x-full', ...HIDDEN);
+
+  // Bersihkan SEMUA kelas & inline style yang dipasang saat mobile
+  navWrap.querySelectorAll('.dropdown').forEach(dd => {
+    MOBILE_DROPDOWN_CLASSES.forEach(k => dd.classList.remove(k));
+    dd.style.position = '';
+    dd.style.opacity = '';
+    dd.style.visibility = '';
+    dd.style.pointerEvents = '';
+  });
+
+  // Di desktop JANGAN sembunyikan dengan 'hidden' – biarkan CSS :hover yang urus
+  navWrap.querySelectorAll('.dropdown').forEach(dd => dd.classList.remove('hidden'));
+
+  resetMobileItems();
+  overlay.classList.add('hidden');
+  lockScroll(false);
+  adjustOffset();
+}
 
   function lockScroll(on){
     document.documentElement.style.overflow = on ? 'hidden' : '';
@@ -1444,62 +1486,131 @@ function prepareMobile() {
     lockScroll(true);
     adjustOffset();
   }
-  function closeNav(){
-    navWrap.classList.remove('translate-x-0');
-    navWrap.classList.add('translate-x-full');
-    overlay.classList.add('hidden');
-    btn.setAttribute('aria-expanded','false');
-    lockScroll(false);
-    setTimeout(() => { if (!isDesktop()) navWrap.classList.add(...HIDDEN); }, 200);
+function closeNav(){
+  navWrap.classList.remove('translate-x-0');
+  navWrap.classList.add('translate-x-full');
+  overlay.classList.add('hidden');
+  btn.setAttribute('aria-expanded','false');
+  lockScroll(false);
+
+  hideAllDropdowns(); // aman: di desktop tidak menambah 'hidden'
+
+  setTimeout(() => { if (!isDesktop()) navWrap.classList.add(...HIDDEN); }, 200);
+}
+
+  function hideAllDropdowns() {
+  if (!isDesktop()) {
+    // MOBILE: benar-benar sembunyikan dengan 'hidden'
+    navWrap.querySelectorAll('.dropdown').forEach(dd => {
+      dd.classList.add('hidden');
+      dd.style.position = '';
+      dd.style.opacity = '';
+      dd.style.visibility = '';
+      dd.style.pointerEvents = '';
+    });
+  } else {
+    // DESKTOP: jangan pakai 'hidden' (biar :hover CSS tetap bekerja)
+    navWrap.querySelectorAll('.dropdown').forEach(dd => {
+      dd.classList.remove('hidden'); // jaga-jaga kalau terlanjur ke-set
+    });
   }
+
+  // reset caret (aman di dua mode)
+  navWrap.querySelectorAll('li.nav__menu button, li.nav__menu > a').forEach(tr => {
+    tr.setAttribute('aria-expanded', 'false');
+    const caret = tr.querySelector('svg');
+    if (caret) caret.classList.remove('rotate-180');
+  });
+}
+
+
 
   // INIT
   if (isDesktop()) teardownMobile(); else prepareMobile();
   closeNav();
 
-  // Toggle
-  btn.addEventListener('click', (e) => {
-    if (isDesktop()) return;          // desktop tetap pakai layout asli
+  // Toggle sidebar
+  btn.addEventListener('click', () => {
+    if (isDesktop()) return;
     const opened = navWrap.classList.contains('translate-x-0');
     opened ? closeNav() : openNav();
   });
 
-  // Tutup
-  overlay.addEventListener('click', closeNav);
-  document.addEventListener('click', (e) => {
-    if (isDesktop()) return;
-    if (!e.target.closest('header')) closeNav();
-  });
+  // Tutup lewat overlay
+ overlay.addEventListener('click', () => {
+  if (!isDesktop()) {           // <-- tambah guard
+    hideAllDropdowns();
+    closeNav();
+  }
+});
+
+document.addEventListener('click', (e) => {
+  const insideHeader = e.target.closest('header');
+  if (!insideHeader && !isDesktop()) {   // <-- tambah guard
+    hideAllDropdowns();
+    closeNav();
+  }
+});
+
+
+  // Klik link mana pun di sidebar => tutup (mobile)
   navWrap.addEventListener('click', (e) => {
     if (isDesktop()) return;
     if (e.target.closest('a')) closeNav();
   });
 
-  // Dropdown MOBILE via klik (desktop tetap hover)
+  // ===== DROPDOWN MOBILE VIA KLIK (desktop tetap hover) =====
   navWrap.querySelectorAll('li.nav__menu').forEach(li => {
     const trigger = li.querySelector('button, a');
-    const dd = li.querySelector('.dropdown');
+    const dd      = li.querySelector('.dropdown');
     if (!trigger || !dd) return;
+
+    // Aksesibilitas & caret
+    trigger.setAttribute('aria-haspopup','true');
+    trigger.setAttribute('aria-expanded','false');
+    const caret = trigger.querySelector('svg');
+
     trigger.addEventListener('click', (ev) => {
       if (isDesktop()) return;
+
+      // Jika ini pemicu dropdown, jangan navigate
       const href = trigger.getAttribute('href');
       if (!href || href === '#') ev.preventDefault();
-      navWrap.querySelectorAll('.dropdown').forEach(x => { if (x !== dd) x.classList.add('hidden'); });
+
+      // Tutup semua dropdown lain dulu
+      navWrap.querySelectorAll('.dropdown').forEach(x => {
+        if (x !== dd) x.classList.add('hidden');
+        const otherTrig  = x.closest('li')?.querySelector('button, a');
+        if (otherTrig) otherTrig.setAttribute('aria-expanded','false');
+        const otherCaret = otherTrig?.querySelector('svg');
+        if (otherCaret) otherCaret.classList.remove('rotate-180');
+      });
+
+      // Toggle dropdown aktif
       dd.classList.toggle('hidden');
+
+      // Update aria & caret
+      const opened = !dd.classList.contains('hidden');
+      trigger.setAttribute('aria-expanded', opened ? 'true' : 'false');
+      if (caret) caret.classList.toggle('rotate-180', opened);
+
       ev.stopPropagation();
     });
   });
 
-  // Responsif + kalau header tinggi berubah (resize/orientasi)
-  window.addEventListener('resize', () => {
-    if (isDesktop()) { teardownMobile(); closeNav(); }
-    else { prepareMobile(); closeNav(); }
-  });
-  // optional: rekalkulasi saat scroll (kalau header shrink-on-scroll)
-  window.addEventListener('scroll', () => { if (!isDesktop()) adjustOffset(); }, { passive: true });
+  // Responsif: pindah mode dengan rapi
+ window.addEventListener('resize', () => {
+  if (isDesktop()) { teardownMobile(); closeNav(); }  // => bersihkan sisa mobile
+  else { prepareMobile(); closeNav(); }
+});
+
+
+  // Jika header berubah tinggi saat scroll, sesuaikan offset
+  window.addEventListener('scroll', () => {
+    if (!isDesktop()) adjustOffset();
+  }, { passive: true });
 });
 </script>
-
 
     <script src="/_next/static/chunks/webpack-5a222ed6879ce29c.js" crossorigin="" async=""></script>
     <script>(self.__next_f = self.__next_f || []).push([0]); self.__next_f.push([2, null])</script>
