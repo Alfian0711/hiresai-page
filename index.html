@@ -75,6 +75,47 @@
             position: absolute
         }
 
+        .logo-img {
+            width: 100px;
+            height: 48px;
+            margin: 0 10px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out;
+            }
+
+            .logo-img:hover {
+            filter: grayscale(0%);
+        }
+
+       @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+        }
+
+        .slider-wrapper {
+        overflow: hidden;
+        width: 100%;
+        padding: 10px 0;
+        }
+
+        .slider-track {
+        display: flex;
+        width: fit-content;
+        animation: scroll-left 40s linear infinite;
+        }
+
+        .logo-item {
+        width: 100px;
+        height: 48px;
+        margin: 0 10px;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+        }
+
+        .logo-item:hover {
+        filter: grayscale(0%);
+        }
+
         @-webkit-keyframes nprogress-spinner {
             0% {
                 -webkit-transform: rotate(0deg)
@@ -133,17 +174,19 @@
                                 href="#features">Tentang</a></li> -->
                                 <li class="nav__menu group relative lg:py-7"><a
                                     class="hover:nav-gradient relative border border-transparent px-4 py-1.5 text-sm hover:text-white text-white/80"
-                                    href="https://hiresai-id.gitbook.io/hiresai.id-docs" target="_blank">Dokumentasi</a></li>
-                                    <li class="nav__menu group relative lg:py-7"><a
-                                            class="hover:nav-gradient relative border border-transparent px-4 py-1.5 text-sm hover:text-white text-white/80"
-                                            href="#pricing">Harga</a></li>
-                        <li class="nav__menu group relative lg:py-7">
-                            <button
-                                class="hover:nav-gradient relative flex items-center justify-between gap-3 border border-transparent px-4 py-1.5 text-sm hover:text-white text-white/80">Mitra
-                            </button>
-                        </li>
+                                    href="#pricing">Harga</a>
+                                </li>
+                                <li class="nav__menu group relative lg:py-7">
+                                    <a href="#mitra"
+                                        class="hover:nav-gradient relative flex items-center justify-between gap-3 border border-transparent px-4 py-1.5 text-sm hover:text-white text-white/80">Mitra
+                                    </a>
+                                </li>
+                                <li class="nav__menu group relative lg:py-7"><a
+                                    class="hover:nav-gradient relative border border-transparent px-4 py-1.5 text-sm hover:text-white text-white/80"
+                                    href="https://hiresai-id.gitbook.io/hiresai.id-docs" target="_blank">Dokumentasi</a>
+                                </li>
                         <li class="nav__menu group relative lg:py-7"><a
-                                class="hover:nav-gradient relative flex items-center justify-between gap-3 border border-transparent px-4 py-1.5 text-sm hover:text-white text-white/80"
+                                class="hover:nav-gradient relative flex items-center justify-between gap-3 border border-transparent px-4 py-1.5 text-sm hover:text-white text-white/80" target="_blank"
                                 href="https://jobs.hiresai.id/">Pekerjaan</a>
                         </li>
                     </ul>
@@ -195,7 +238,7 @@
         </div>
         <div class="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px]" data-wow-delay="0.1s"><img
                 alt="hero" loading="lazy" decoding="async" data-nimg="fill" class="mx-auto"
-                style="position:absolute;height:100%;width:70%;left:0;top:0;right:0;bottom:0;color:transparent"
+                style="position:absolute;height:100%;width:80%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:12px"
                 src="./images/hero/home-image.png" /></div>
     </section>
 
@@ -488,7 +531,7 @@
                                     src="https://ai-tool.nextjstemplates.com/images/pricing/pricing-icon-01.svg" /></span> -->
                             <h3 class="mb-5.5 text-heading-6 font-semibold text-white">Novera</h3>
                             <div class="flex items-center gap-3.5">
-                                <h2 class="pricing-gradient-text text-custom-2 font-bold" style="font-size: 1.5rem;">Rp<!-- --> <!-- -->1.000.000
+                                <h2 class="pricing-gradient-text text-custom-2 font-bold" style="font-size: 1.5rem;">Rp<!-- --> <!-- -->2.000.000
                                 </h2>
                             </div>
                             <p class="font-medium">/bulan <br /></p>
@@ -804,7 +847,7 @@
                                     src="https://ai-tool.nextjstemplates.com/images/pricing/pricing-icon-01.svg" /></span>
                             <h3 class="mb-5.5 text-heading-6 font-semibold text-white">Lucida</h3>
                             <div class="flex items-center gap-3.5">
-                                <h2 class="pricing-gradient-text text-custom-2 font-bold"style="font-size: 1.5rem;">Rp<!-- --> <!-- -->3.000.000
+                                <h2 class="pricing-gradient-text text-custom-2 font-bold"style="font-size: 1.5rem;">Rp<!-- --> <!-- -->5.000.000
                                 </h2>
                             </div>
                             <p class="font-medium">/bulan <br /></p>
@@ -1163,7 +1206,7 @@
                                 <h2 class="pricing-gradient-text text-custom-2 font-bold" style="font-size: 1.5rem;">Rp<!-- --> <!-- -->50.000.000
                                 </h2>
                             </div>
-                            <p class="font-medium">/Tahun<br /></p>
+                            <p class="font-medium">/6 bulan<br /></p>
                             <div class="pricing-gradient-divider my-10 h-[1px] w-full"></div>
                             <ul class="flex flex-col gap-4">
                                 <li class="flex items-center gap-5"><svg width="25" height="24" viewBox="0 0 25 24"
@@ -1245,7 +1288,7 @@
                                                 <rect width="25" height="24" fill="white"></rect>
                                             </clipPath>
                                         </defs>
-                                    </svg><span class="font-medium">Wawancara AI (durasi 10 menit/kandidat)</span></li>
+                                    </svg><span class="font-medium">Wawancara AI (durasi 15 menit/kandidat)</span></li>
                                 <li class="flex items-center gap-5"><svg width="25" height="24" viewBox="0 0 25 24"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0_67_11301)">
@@ -1285,7 +1328,7 @@
                                                 <rect width="25" height="24" fill="white"></rect>
                                             </clipPath>
                                         </defs>
-                                    </svg><span class="font-medium">500 slot wawancara kandidat per bulan</span></li>
+                                    </svg><span class="font-medium">2640 slot wawancara kandidat per 6 bulan</span></li>
                                 <li class="flex items-center gap-5"><svg width="25" height="24" viewBox="0 0 25 24"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0_67_11301)">
@@ -1611,7 +1654,48 @@
                                                 <rect width="25" height="24" fill="white"></rect>
                                             </clipPath>
                                         </defs>
-                                    </svg><span class="font-medium">Jaminan privasi data & kepatuhan SLA</span>
+                                    </svg><span class="font-medium">Jaminan privasi data</span>
+                                </li>
+                                <li class="flex items-center gap-5"><svg width="25" height="24" viewBox="0 0 25 24"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_67_11301)">
+                                            <path
+                                                d="M24.5 12C24.5 5.37258 19.1274 0 12.5 0C5.87258 0 0.5 5.37258 0.5 12C0.5 18.6274 5.87258 24 12.5 24C19.1274 24 24.5 18.6274 24.5 12Z"
+                                                fill="url(#paint0_linear_67_11301)" fill-opacity="0.08"></path>
+                                            <g filter="url(#filter0_d_67_11301)">
+                                                <path d="M12.5 9L15.5 12L12.5 15L9.5 12L12.5 9Z" fill="#F3EEFF"></path>
+                                            </g>
+                                            <path
+                                                d="M24 12C24 5.64873 18.8513 0.5 12.5 0.5C6.14873 0.5 1 5.64873 1 12C1 18.3513 6.14873 23.5 12.5 23.5C18.8513 23.5 24 18.3513 24 12Z"
+                                                stroke="#F3EEFF" stroke-opacity="0.06"></path>
+                                        </g>
+                                        <defs>
+                                            <filter id="filter0_d_67_11301" x="3.5" y="3" width="18" height="18"
+                                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                                <feColorMatrix in="SourceAlpha" type="matrix"
+                                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                    result="hardAlpha"></feColorMatrix>
+                                                <feOffset></feOffset>
+                                                <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+                                                <feComposite in2="hardAlpha" operator="out"></feComposite>
+                                                <feColorMatrix type="matrix"
+                                                    values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0"></feColorMatrix>
+                                                <feBlend mode="normal" in2="BackgroundImageFix"
+                                                    result="effect1_dropShadow_67_11301"></feBlend>
+                                                <feBlend mode="normal" in="SourceGraphic"
+                                                    in2="effect1_dropShadow_67_11301" result="shape"></feBlend>
+                                            </filter>
+                                            <linearGradient id="paint0_linear_67_11301" x1="12.5" y1="0" x2="12.5"
+                                                y2="24" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#F3EEFF" stop-opacity="0"></stop>
+                                                <stop offset="1" stop-color="#F3EEFF"></stop>
+                                            </linearGradient>
+                                            <clipPath id="clip0_67_11301">
+                                                <rect width="25" height="24" fill="white"></rect>
+                                            </clipPath>
+                                        </defs>
+                                    </svg><span class="font-medium">Ekspor file pdf/excel </span>
                                 </li>
                             </ul><button aria-label="Get the plan button"
                                 class="pricing-button-gradient relative mt-11 flex w-full items-center justify-center gap-1.5 rounded-lg p-3 font-medium text-white transition-all duration-300 ease-in-out hover:shadow-button">Dapatkan Paket<svg width="17" height="16" viewBox="0 0 17 16" fill="none"
@@ -1790,7 +1874,7 @@
                             alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1"
                             style="color:transparent" src="/images/hero/icon-title.svg" /><span
                             class="hero-subtitle-text"> <!-- -->Need Any Help?<!-- --> </span></span>
-                    <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Contact With Us
+                    <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Hubungi Kami
                     </h2>
                     <p class="mx-auto max-w-[714px] font-medium">Hubungi kami dan temukan bagaimana platform rekrutmen berbasis AI dari Hiresai dapat membantu Anda merekrut lebih cepat, lebih cerdas, dan dengan penuh keyakinan.</p>
                 </div>
@@ -1849,8 +1933,28 @@
                         <span class="hero-subtitle-text">Coba produk kami secara Gratis
                         </span>
                     </span>
-                    <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Apa yang Anda
-                        tunggu?</h2>
+                    <h2 class="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Gabung Bersama Kami</h2>
+
+                    <section id="mitra" class="bg-transparent py-20">
+                        <!-- Baris 1 (bergerak ke kiri) -->
+                        <div class="slider-wrapper">
+                        <div class="slider-track" id="logo-track">
+                            <template id="logo-template">
+                                <img src="/images/mitra/Logo Gram.svg" class="logo-img"/>
+                                <img src="/images/mitra/valdoinc.svg" class="logo-img"/>
+                                <img src="/images/mitra/logo-abp.svg" class="logo-img"/>
+                                <img src="/images/mitra/unilever.svg" class="logo-img" style="height:fit-content; margin-top: -25px;"/>
+                                <img src="/images/mitra/123.svg" class="logo-img" />
+                                <img src="/images/mitra/anak hebat.png" class="logo-img" />
+                                <img src="/images/mitra/ciptarasamendunia.svg" class="logo-img" />
+                                <img src="/images/mitra/jaspri.png" class="logo-img" style="height:fit-content; margin-top: -25px;"/>
+                                <img src="/images/mitra/EntrepreneurCampus-Logo.png" class="logo-img"/>
+                                <img src="/images/mitra/Logo SI.png" class="logo-img" style="height:fit-content; margin-top: -25px;"/>
+                            </template>
+                        </div>
+                        </div>
+                    </section>
+
                     <p class="mx-auto mb-9 max-w-[714px] font-medium">Kami membangun solusi rekrutmen cerdas untuk tim dan perusahaan dengan memanfaatkan kekuatan AI dan otomatisasi.</p>
                         <a
                         id="btn-wa"
@@ -1866,6 +1970,7 @@
             </div>
         </div>
     </section>
+
     <section class="pb-11 pt-17.5 sm:pt-22.5 xl:pt-27.5">
         <div class="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
             <div class="flex flex-wrap items-center justify-between gap-10">
@@ -1877,7 +1982,7 @@
                     <form>
                         <div class="flex items-center gap-4">
                             <div class="w-full max-w-[395px]"><input id="newsletterEmail" type="email"
-                                    placeholder="Enter your Email"
+                                    placeholder="Masukkan email anda"
                                     class="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-white outline-none focus:border-purple"
                                     name="newsletterEmail" /></div><button
                                 class="button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-7 py-3.5 text-sm text-white shadow-button hover:shadow-none">Berlangganan</button>
@@ -1887,6 +1992,7 @@
             </div>
         </div>
     </section>
+    
     <footer class="relative z-10 pb-17.5 lg:pb-22.5 xl:pb-27.5">
         <div class="relative mx-auto max-w-[1170px] px-4 pt-17.5 sm:px-8 xl:px-0">
             <div class="footer-divider-gradient absolute left-0 top-0 h-[1px] w-full"></div>
@@ -1927,47 +2033,41 @@
                 <div class="w-full max-w-[571px]">
                     <div class="flex flex-col gap-10 sm:flex-row sm:justify-between">
                         <div>
-                            <h3 class="mb-5 font-semibold text-white">Products</h3>
+                            <h3 class="mb-5 font-semibold text-white">Produk</h3>
                             <ul class="flex flex-col gap-3.5">
                                 <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Features</a></li>
+                                        class="font-medium duration-300 ease-in hover:text-white">Fitur</a></li>
                                 <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Integrations</a></li>
+                                        class="font-medium duration-300 ease-in hover:text-white">Integrasi</a></li>
                                 <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Pricing</a></li>
-                                <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Changes log</a></li>
-                                <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Roadmap</a></li>
+                                        class="font-medium duration-300 ease-in hover:text-white">Harga</a></li>
                             </ul>
                         </div>
                         <div>
-                            <h3 class="mb-5 font-semibold text-white">Company</h3>
+                            <h3 class="mb-5 font-semibold text-white">Perusahaan</h3>
                             <ul class="flex flex-col gap-3.5">
                                 <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Privacy Policy</a>
+                                        class="font-medium duration-300 ease-in hover:text-white">Kebijakan Privasi</a>
                                 </li>
                                 <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Refund Policy</a></li>
+                                        class="font-medium duration-300 ease-in hover:text-white">Kebijakan Pengembalian</a></li>
                                 <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Support</a></li>
+                                        class="font-medium duration-300 ease-in hover:text-white">Dukungan</a></li>
                                 <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Community</a></li>
+                                        class="font-medium duration-300 ease-in hover:text-white">Komunitas</a></li>
                             </ul>
                         </div>
                         <div>
-                            <h3 class="mb-5 font-semibold text-white">Support</h3>
+                            <h3 class="mb-5 font-semibold text-white">Sosial Media</h3>
                             <ul class="flex flex-col gap-3.5">
+                                <li><a href="https://x.com/hiresaiId" target="_self" rel=""
+                                        class="font-medium duration-300 ease-in hover:text-white">X</a></li>
+                                <li><a href="https://www.instagram.com/hires.ai/" target="_self" rel=""
+                                        class="font-medium duration-300 ease-in hover:text-white">Instagram</a></li>
                                 <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Features</a></li>
+                                        class="font-medium duration-300 ease-in hover:text-white">Telegram</a></li>
                                 <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Integrations</a></li>
-                                <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Pricing</a></li>
-                                <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Changes log</a></li>
-                                <li><a href="#" target="_self" rel=""
-                                        class="font-medium duration-300 ease-in hover:text-white">Roadmap</a></li>
+                                        class="font-medium duration-300 ease-in hover:text-white">WhatsApp</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1988,6 +2088,17 @@
     </div>
     
 <script>
+
+const logoTrack = document.getElementById('logo-track');
+const template = document.getElementById('logo-template');
+
+if (logoTrack && template) {
+  for (let i = 0; i < 2; i++) {
+    const clone = template.content.cloneNode(true);
+    logoTrack.appendChild(clone);
+  }
+}
+
 
 const mailBtn = document.getElementById('btn-mail');
 if (mailBtn) {
